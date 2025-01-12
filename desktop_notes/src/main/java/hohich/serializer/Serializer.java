@@ -6,5 +6,5 @@ import java.io.File;
 import java.io.IOException;
 
 public interface Serializer<T> {
-    void serialize(T obj) throws IOException;
+    void serialize(T obj, String filePath);
 }

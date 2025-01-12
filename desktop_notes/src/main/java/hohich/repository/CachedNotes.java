@@ -8,16 +8,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Setter
+
 @Getter
 class CachedNotes {
     private List<Note> notes;
+    private final int  MAX_CACHE_SIZE = 10;
 
     public CachedNotes(){
         notes = new ArrayList<>();
     }
 
+    public void setNotes(List<Note> notes){
+        if(notes.size() > MAX_CACHE_SIZE){
+            throw new IllegalArgumentException("Maximum cache size reached");
+        }
+        this.notes = notes;
+    }
+
     public void addNote(Note note) {
+        if (!sizeCheck()){
+            notes.removeFirst();
+        }
         notes.add(note);
     }
 
@@ -35,5 +46,12 @@ class CachedNotes {
 
     public void deleteAllNotes(){
         notes.clear();
+    }
+
+    private boolean sizeCheck() {
+        if (notes.size() == MAX_CACHE_SIZE) {
+            return false;
+        }
+        return true;
     }
 }
