@@ -3,8 +3,7 @@ package hohich.serializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import hohich.model.Note;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,7 +27,7 @@ public class JsonSerializer implements Serializer<Note>{
 
     private void saveToFile(String json, String filePath){
         //todo design filenaming that matches dir tree
-        try(FileWriter fileWriter = new FileWriter(new File(filePath))) {
+        try(FileWriter fileWriter = new FileWriter(filePath)) {
             fileWriter.write(json);
         } catch (IOException e) {
             e.printStackTrace();

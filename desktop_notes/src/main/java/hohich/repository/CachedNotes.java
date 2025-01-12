@@ -2,7 +2,6 @@ package hohich.repository;
 
 import hohich.model.Note;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +48,6 @@ class CachedNotes {
     }
 
     private boolean sizeCheck() {
-        if (notes.size() == MAX_CACHE_SIZE) {
-            return false;
-        }
-        return true;
+        return notes.size() < MAX_CACHE_SIZE;
     }
 }

@@ -5,7 +5,6 @@ import com.google.gson.annotations.Expose;
 import javafx.scene.image.Image;
 import lombok.Data;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
